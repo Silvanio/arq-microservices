@@ -25,7 +25,6 @@ public class ProviderServiceApplication {
         SpringApplication.run(ProviderServiceApplication.class, args);
     }
 
-
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -38,11 +37,11 @@ public class ProviderServiceApplication {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "My REST API",
-                "Some custom description of API.",
-                "API TOS",
+                "API - Provider Service",
+                "API responsável por gerenciar as funcionalidades de Fornecedores.",
+                "API Version v01_21032020",
                 "Terms of service",
-                new Contact("John Doe", "www.example.com", "myeaddress@company.com"),
+                new Contact("Silvânio Júnior", "www.linkedin.com/in/silvaniojunior", "jrsilvanio@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 }

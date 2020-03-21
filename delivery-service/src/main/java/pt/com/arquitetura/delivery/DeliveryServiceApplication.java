@@ -24,6 +24,7 @@ public class DeliveryServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeliveryServiceApplication.class, args);
 	}
+
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -36,11 +37,11 @@ public class DeliveryServiceApplication {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfo(
-				"My REST API",
-				"Some custom description of API.",
-				"API TOS",
+				"API - Delivery Service",
+				"API renspnsável por gerenciar as funcionalidades de Ordens de Serviço.",
+				"API Version v01_21032020",
 				"Terms of service",
-				new Contact("John Doe", "www.example.com", "myeaddress@company.com"),
+				new Contact("Silvânio Júnior", "www.linkedin.com/in/silvaniojunior", "jrsilvanio@gmail.com"),
 				"License of API", "API license URL", Collections.emptyList());
 	}
 }
