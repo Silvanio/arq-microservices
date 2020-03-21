@@ -2,5 +2,8 @@ spring:
   application:
     name: delivery-service
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     config:
       uri: http://localhost:9090

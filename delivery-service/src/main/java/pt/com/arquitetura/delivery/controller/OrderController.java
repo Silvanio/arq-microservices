@@ -16,8 +16,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Order> save(@RequestBody Order order) {
+    public ResponseEntity<Order> save(@RequestBody Order order) throws Exception {
         return ResponseEntity.ok(orderService.save(order));
     }
 

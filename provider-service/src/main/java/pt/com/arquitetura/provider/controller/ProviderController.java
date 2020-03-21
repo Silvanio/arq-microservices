@@ -30,6 +30,15 @@ public class ProviderController {
         return ResponseEntity.ok(null);
     }
 
+    @RequestMapping(value = "exist/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Boolean> isExist(@PathVariable("id") Long id) {
+        Optional<Provider> orderOptional = orderService.findById(id);
+        if (orderOptional.isPresent()) {
+            return ResponseEntity.ok(Boolean.TRUE);
+        }
+        return ResponseEntity.ok(Boolean.FALSE);
+    }
+
     @RequestMapping(value = "/all",method = RequestMethod.GET)
     public ResponseEntity<Iterable<Provider>> findAll() {
         return ResponseEntity.ok().body(orderService.findAll());

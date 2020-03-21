@@ -7,7 +7,6 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Getter
-@Setter
 @Entity
 @Table(name = "tb_provider", schema = "provider")
 public class Provider implements Serializable {
@@ -18,6 +17,7 @@ public class Provider implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     @NotEmpty(message = "Name required")
     private String name;
 

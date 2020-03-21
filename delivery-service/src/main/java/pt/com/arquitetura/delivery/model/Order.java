@@ -32,4 +32,35 @@ public class Order implements Serializable {
     @NotNull(message = "Price required")
     private BigDecimal price;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdProvider() {
+        return idProvider;
+    }
+
+    public void setIdProvider(Long idProvider) {
+        this.idProvider = idProvider;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

@@ -3,7 +3,8 @@ package pt.com.arquitetura.delivery.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.client.RestTemplate;
+import pt.com.arquitetura.delivery.clients.ProviderClient;
+import pt.com.arquitetura.delivery.exception.ProviderNotExistException;
 import pt.com.arquitetura.delivery.model.Order;
 import pt.com.arquitetura.delivery.repository.OrderRepository;
 
@@ -16,10 +17,14 @@ public class OrderService {
     private OrderRepository orderRepository;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private ProviderClient providerClient;
 
-    public Order save(@Validated Order order) {
-        return orderRepository.save(order);
+    public Order save(@Validated Order order) throws Exception {
+
+        if (providerClient.isExist(order.getIdProvider())) {
+            return orderRepository.save(order);
+        }
+        throw new ProviderNotExistException();
     }
 
     public Optional<Order> findById(Long id) {
